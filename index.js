@@ -25,5 +25,20 @@ app.get('/oauth-callback', (req, res) => {
     catch(err => res.status(500).json({ message: err.message }));
 });
 
+app.get('/list', (req, res) => {
+  const config = {
+    headers: {Authorization: `Bearer ${token}`}
+  };
+  axios.get('https://api.github.com/user/repos', config).then((responses) => {
+    const repos = responses.data.map(
+      ({name, language, html_url, created_at, description}) => {
+        return {name, language, html_url, created_at, description};
+      });
+    console.log("repos: ", repos);
+  }).catch(error => {
+    console.log(`getrepos error: ${error}`)
+  });
+});
+
 app.listen(3000);
 console.log('App listening on port 3000');
