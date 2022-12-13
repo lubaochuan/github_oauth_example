@@ -1,6 +1,6 @@
 Example from http://thecodebarbarian.com/github-oauth-login-with-node-js.html
 
-To run this example on repl.it, you will to setup `CLIENT_ID` and `CLIENT_SECRET` and secrets and reference as environment variables:
+To run this example on repl.it, you will need to setup `CLIENT_ID` and `CLIENT_SECRET` as secrets and reference them as environment variables in your code:
 ```
 console.log(process.env.CLIENT_ID);
 console.log(process.env.CLIENT_SECRET);
